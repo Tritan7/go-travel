@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoTravel - Unforgettable Mount Bromo Sunrise Tour</title>
+    <title>GoTravel - Unforgettable Indonesia Tour</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,17 +34,21 @@
 
     <header>
         <div class="logo">GoTravel</div>
-        <nav class="glass-nav">
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#tour-activity">Tour Activity</a></li>
-                <li><a href="#packages">Package</a></li>
-                <li><a href="#documentation">Documentation</a></li>
-            </ul>
-        </nav>
-        <button class="btn-book-nav">
-            Book Now <i class="ph ph-arrow-up-right"></i>
-        </button>
+        <div class="nav-container" id="nav-menu">
+            <button class="close-menu-btn" id="close-menu-btn"><i class="ph ph-x"></i></button>
+            <nav class="glass-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#tour-activity">Tour Activity</a></li>
+                    <li><a href="#packages">Package</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                </ul>
+            </nav>
+            <button class="btn-book-nav">
+                Book Now <i class="ph ph-arrow-up-right"></i>
+            </button>
+        </div>
+        <button class="hamburger-btn" id="hamburger-btn"><i class="ph ph-list"></i></button>
     </header>
 
     <main class="hero" id="home">
@@ -472,6 +476,138 @@
             <h3 class="partner-logo"><i class="ph ph-circle-half"></i> Medium</h3>
         </div>
     </section>
+
+    <section class="how-to-book-section" id="how-to-book">
+        <div class="packages-header">
+            <span class="tp-tag doc-tag"><i class="ph ph-info"></i> How It Works</span>
+            <h2>From Discovery to <span class="text-gray">Adventure</span> — Simplified</h2>
+            <p>Our streamlined process helps you plan, evaluate, and secure your Mount Bromo trip without unnecessary
+                complexity.</p>
+        </div>
+
+        <div class="steps-container">
+            <!-- Step 1 (Active) -->
+            <div class="step-card active"
+                style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=600');">
+                <div class="step-overlay"></div>
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <div class="step-icon"><i class="ph ph-magnifying-glass"></i></div>
+                    <h3>Discover Tour Packages</h3>
+                    <p class="step-desc">Browse our curated selection of Mount Bromo adventures and find the perfect
+                        match for your schedule.</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card"
+                style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=600');">
+                <div class="step-overlay"></div>
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <div class="step-icon"><i class="ph ph-chart-line-up"></i></div>
+                    <h3>Fill Booking Details</h3>
+                    <p class="step-desc">Evaluate real-time availability, projected schedules, and select your preferred
+                        add-ons before
+                        making an informed decision.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card"
+                style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=600');">
+                <div class="step-overlay"></div>
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <div class="step-icon"><i class="ph ph-credit-card"></i></div>
+                    <h3>Secure Payment</h3>
+                    <p class="step-desc">Complete your booking safely through our encrypted checkout process to secure
+                        your spot
+                        immediately.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card"
+                style="background-image: url('https://images.unsplash.com/photo-1522340578832-55276e053fba?auto=format&fit=crop&q=80&w=600');">
+                <div class="step-overlay"></div>
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <div class="step-icon"><i class="ph ph-shield-check"></i></div>
+                    <h3>Ready for Adventure</h3>
+                    <p class="step-desc">Receive your e-tickets and prepare for an unforgettable journey exploring the
+                        magnificent Indonesia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <!-- Top Section -->
+            <div class="footer-top">
+                <div class="footer-cta">
+                    <h2>Book Your Tour Today!</h2>
+                    <p>Join us for an unforgettable Indonesia adventure</p>
+                </div>
+                <div class="footer-subscribe">
+                    <form action="#" class="subscribe-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Middle Section -->
+            <div class="footer-middle">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="logo-text">GoTravel</span>
+                    </div>
+                    <p>Discover the awe-inspiring beauty of Indonesia with our exclusive sunrise tours. Witness the
+                        breathtaking sunrise from the summit, embark on thrilling Jeep adventures, and immerse yourself
+                        in the rich local culture.</p>
+                    <a href="#" class="more-link">More About us <i class="ph ph-arrow-up-right"></i></a>
+                </div>
+
+                <div class="footer-links-wrapper">
+                    <div class="footer-grid">
+                        <div class="footer-col">
+                            <h4>Contact Us</h4>
+                            <p>+62 123 456 7890<br>info@gotravel.com</p>
+
+                            <h4 class="mt-4">Location</h4>
+                            <p>Go Travel<br>Jl. Raya Bromo No. 123<br>Probolinggo, East Java, Indonesia
+                                67254</p>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Company & Legals</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Frequently Ask Question</a></li>
+                                <li><a href="#">Term of Services</a></li>
+                                <li><a href="#">License</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 Go Travel Indonesia.<br>All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

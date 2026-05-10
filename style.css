@@ -92,6 +92,33 @@ header.scrolled {
     font-family: 'Pacifico', cursive;
 }
 
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.close-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 2rem;
+    right: 5%;
+}
+
 .glass-nav {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
@@ -161,7 +188,8 @@ header.scrolled {
 /* Hero Section */
 .hero {
     padding: 1rem 5%;
-    padding-top: 100px; /* Compensate for fixed header */
+    padding-top: 100px;
+    /* Compensate for fixed header */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -473,8 +501,72 @@ header.scrolled {
 }
 
 @media (max-width: 768px) {
-    .glass-nav {
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    body.menu-open header {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        padding: 2rem;
+        border-radius: 0;
+        border: none;
+        gap: 3rem;
         display: none;
+        z-index: 2000;
+        box-shadow: none;
+    }
+
+    .nav-container.active {
+        display: flex;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .close-menu-btn {
+        display: block;
+    }
+
+    .glass-nav {
+        background: transparent;
+        border: none;
+        padding: 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .glass-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .glass-nav a {
+        font-size: 1.5rem;
+    }
+
+    .btn-book-nav {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.2rem;
+        padding: 1rem;
     }
 
     .main-heading {
@@ -485,6 +577,10 @@ header.scrolled {
     .left-content {
         max-width: 100%;
     }
+
+    .right-content {
+        display: none;
+    }
 }
 
 /* Tour Packages Section */
@@ -494,9 +590,9 @@ header.scrolled {
     padding: 5rem 5%;
     position: relative;
     /* Faint perspective grid */
-    background-image: 
-        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
     background-position: center bottom;
     text-align: center;
@@ -570,8 +666,10 @@ header.scrolled {
 
 .tp-carousel {
     display: flex;
-    align-items: flex-end; /* Align to bottom to prevent vertical jumping when scaling */
-    justify-content: center; /* Center the cards in the container */
+    align-items: flex-end;
+    /* Align to bottom to prevent vertical jumping when scaling */
+    justify-content: center;
+    /* Center the cards in the container */
     gap: 2rem;
     transition: transform 0.5s ease-out;
 }
@@ -602,9 +700,11 @@ header.scrolled {
     width: 300px;
     height: 400px;
     opacity: 1;
-    transform: scale(1.15); /* Visually expand without affecting layout */
-    z-index: 10; /* Ensure active card is on top of neighbors */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: scale(1.15);
+    /* Visually expand without affecting layout */
+    z-index: 10;
+    /* Ensure active card is on top of neighbors */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -612,7 +712,7 @@ header.scrolled {
 
 /* Masking effect on active card */
 .tp-card.active .tp-card-image {
-    height: 65%;
+    height: 55%;
     position: relative;
 }
 
@@ -632,7 +732,7 @@ header.scrolled {
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    height: 35%;
+    height: 45%;
     text-align: left;
     position: relative;
 }
@@ -647,6 +747,7 @@ header.scrolled {
     font-size: 0.9rem;
     color: #666;
     line-height: 1.4;
+    padding-right: 3rem;
 }
 
 .tp-card.active .btn-arrow {
@@ -720,9 +821,9 @@ header.scrolled {
     color: #fff;
     padding: 6rem 5%;
     position: relative;
-    background-image: 
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
     background-position: center bottom;
     text-align: center;
@@ -872,6 +973,154 @@ header.scrolled {
     transition: transform 0.3s ease;
 }
 
+/* How To Book Section */
+.how-to-book-section {
+    background-color: #fff;
+    padding: 6rem 5%;
+    color: #111;
+}
+
+.how-to-book-section .packages-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.how-to-book-section .packages-header h2 {
+    font-size: 2.8rem;
+    color: #111;
+}
+
+.how-to-book-section .packages-header p {
+    color: #666;
+    font-size: 1rem;
+    max-width: 650px;
+    margin: 1.5rem auto 0;
+    line-height: 1.6;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    min-height: 460px;
+    /* Provides space for the scaled card to not overlap sections vertically */
+}
+
+.step-card {
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 380px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.step-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    /* Dark overlay when not active */
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.step-card.active .step-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    /* Lit when active */
+}
+
+/* Ensure content is above overlay */
+.step-num,
+.step-content {
+    position: relative;
+    z-index: 2;
+}
+
+.step-card.active {
+    transform: scale(1.15);
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.step-card.active:hover {
+    transform: scale(1.15) translateY(-5px);
+}
+
+.step-card .step-num {
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+    line-height: 1;
+    transition: color 0.4s ease;
+}
+
+.step-card.active .step-num {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.step-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.step-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    margin-top: 0.5rem;
+}
+
+.step-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.step-card.active .step-desc {
+    max-height: 150px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
 /* Documentation Section */
 .documentation-section {
     background-color: #fff;
@@ -940,7 +1189,8 @@ header.scrolled {
     gap: 3rem;
 }
 
-.doc-review h3, .doc-includes h3 {
+.doc-review h3,
+.doc-includes h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -1038,7 +1288,7 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
     color: #fff;
 }
 
@@ -1063,7 +1313,7 @@ header.scrolled {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     background: transparent;
     color: #fff;
     display: flex;
@@ -1114,7 +1364,7 @@ header.scrolled {
     justify-content: center;
     font-size: 1.2rem;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
 }
 
@@ -1184,6 +1434,7 @@ header.scrolled {
     background-color: #fff;
     padding: 3rem 5%;
     border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
 }
 
 .partners-logos {
@@ -1192,12 +1443,6 @@ header.scrolled {
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
-    opacity: 0.4;
-    transition: opacity 0.3s ease;
-}
-
-.partners-logos:hover {
-    opacity: 0.7;
 }
 
 .partner-logo {
@@ -1209,16 +1454,350 @@ header.scrolled {
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 @media (max-width: 1024px) {
     .doc-content {
         grid-template-columns: 1fr;
     }
-    
+
     .doc-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 1.5rem;
+    }
+}
+
+/* Footer Section */
+.main-footer {
+    padding: 0 5% 4rem 5%;
+    background: #fff;
+}
+
+.footer-container {
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 4rem 5%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Top Section */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-cta h2 {
+    font-size: 2.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+.footer-cta p {
+    color: #999;
+    font-size: 1rem;
+}
+
+.subscribe-form {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 0.4rem;
+    width: 400px;
+    max-width: 100%;
+}
+
+.subscribe-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0 1.5rem;
+    color: #fff;
+    outline: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.subscribe-form input::placeholder {
+    color: #777;
+}
+
+.subscribe-form button {
+    background: #fff;
+    color: #111;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background: #eee;
+    transform: scale(1.05);
+}
+
+/* Middle Section */
+.footer-middle {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.footer-about {
+    flex: 1;
+    max-width: 400px;
+}
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo .logo-text {
+    font-size: 2.5rem;
+    font-family: 'Pacifico', cursive;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-logo .logo-text i {
+    font-size: 2.5rem;
+}
+
+.footer-about p {
+    color: #888;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.more-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
+}
+
+.more-link:hover {
+    gap: 0.8rem;
+}
+
+.footer-links-wrapper {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-col h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.footer-col p,
+.footer-col li a {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.footer-col li a:hover {
+    color: #fff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.mt-4 {
+    margin-top: 2.5rem;
+}
+
+/* Bottom Section */
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+.copyright p {
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+    .footer-middle {
+        flex-direction: column;
+    }
+
+    .footer-nav {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Additional 768px Mobile Fixes */
+    .tp-header h2,
+    .packages-header h2,
+    .doc-header-left h2,
+    .how-to-book-section .packages-header h2,
+    .footer-cta h2 {
+        font-size: 2rem !important;
+    }
+
+    .pkg-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .tp-carousel-container {
+        overflow: hidden;
+    }
+
+    .tp-carousel {
+        justify-content: flex-start;
+        padding: 1rem 50vw; /* This padding allows the first and last cards to reach the center */
+        margin-left: calc(-130px - 50vw + 50%); /* Center the first card (260px width/2 = 130px) */
+    }
+
+    .tp-card {
+        display: block;
+        width: 260px;
+        height: 360px;
+        flex-shrink: 0;
+        opacity: 0.5;
+        transition: all 0.4s ease;
+    }
+    
+    .tp-card.active {
+        width: 260px;
+        height: 360px;
+        transform: scale(1.05);
+        opacity: 1;
+        margin: 0;
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .large-media {
+        height: 300px;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    .subscribe-form input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 50px;
+        width: 100%;
+    }
+
+    .subscribe-form button {
+        width: 100%;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-middle {
+        gap: 2.5rem;
     }
 }

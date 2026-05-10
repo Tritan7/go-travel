@@ -44,8 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // carousel.style.transform = `translateX(${translateX}px)`;
         } else {
-            // For mobile, scroll into view
-            cards[index].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            // For mobile, scroll the container explicitly to avoid vertical page jumps
+            const cardElement = cards[index];
+            const scrollPos = cardElement.offsetLeft - (carousel.offsetWidth / 2) + (cardElement.offsetWidth / 2);
+            carousel.scrollTo({
+                left: Math.max(0, scrollPos),
+                behavior: 'smooth'
+            });
         }
     }
 
@@ -120,7 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let translateX = centerOffset - cardOffset;
             // tpCarousel.style.transform = `translateX(${translateX}px)`;
         } else {
-            visibleCards[tpCurrentIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            // Mobile layout side-by-side peek carousel
+            // Card width (260px) + gap (2rem = 32px) = 292px
+            const cardTotalWidth = 260 + 32;
+            const translateX = -(tpCurrentIndex * cardTotalWidth);
+            tpCarousel.style.transform = `translateX(${translateX}px)`;
         }
     }
 
@@ -226,4 +235,55 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Step Cards Interactive Logic
+const stepCards = document.querySelectorAll('.step-card');
+const stepsContainer = document.querySelector('.steps-container');
+
+stepCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        // Remove active class from all cards
+        stepCards.forEach(c => c.classList.remove('active'));
+        // Add active class to hovered card
+        card.classList.add('active');
+    });
+});
+
+// Revert to the first card when mouse leaves the section
+if (stepsContainer) {
+    stepsContainer.addEventListener('mouseleave', () => {
+        stepCards.forEach(c => c.classList.remove('active'));
+        if (stepCards.length > 0) {
+            stepCards[0].classList.add('active');
+        }
+    });
+}
+
+// Mobile Menu Toggle
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+
+if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+    });
+
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    }
+
+    // Close menu when clicking a link
+    const navLinksMobile = navMenu.querySelectorAll('a');
+    navLinksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+}
 
