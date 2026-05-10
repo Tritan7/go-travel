@@ -120,6 +120,9 @@ header.scrolled {
 }
 
 .glass-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -545,6 +548,8 @@ header.scrolled {
     }
 
     .glass-nav {
+        position: static;
+        transform: none;
         background: transparent;
         border: none;
         padding: 0;
