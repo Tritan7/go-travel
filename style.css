@@ -1,0 +1,471 @@
+:root {
+    --primary-color: #fff;
+    --text-color: #fff;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: #000;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Background Slider */
+.background-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.bg-slide.active {
+    opacity: 1;
+}
+
+.overlay-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.1) 40%,
+            rgba(0, 0, 0, 0.6) 100%);
+    z-index: -1;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-family: 'Pacifico', cursive;
+}
+
+.glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.glass-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+.glass-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.glass-nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav a.active {
+    background: #fff;
+    color: #333;
+}
+
+.btn-book-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-book-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-book-nav i {
+    background: #fff;
+    color: #333;
+    border-radius: 50%;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+}
+
+/* Hero Section */
+.hero {
+    padding: 1rem 5%;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 100px);
+    position: relative;
+    z-index: 10;
+}
+
+.hero-top-tag {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.glass-pill {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.main-heading {
+    text-align: center;
+    font-size: 4.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+}
+
+.main-heading span {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    gap: 2rem;
+}
+
+.left-content {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tour-info h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.tour-info .date {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.people-joined {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatars img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+    margin-left: -15px;
+}
+
+.avatars img:first-child {
+    margin-left: 0;
+}
+
+.join-text {
+    font-size: 0.8rem;
+    border: 1px solid var(--glass-border);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    color: #333;
+    padding: 0.4rem 0.4rem 0.4rem 1.2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+    gap: 1rem;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary .icon-circle {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+/* Carousel */
+.right-content {
+    flex: 1.5;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    right: 0;
+    bottom: 2rem;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    align-items: flex-end;
+}
+
+.card {
+    width: 200px;
+    height: 280px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition);
+    flex-shrink: 0;
+    opacity: 0.7;
+    transform: scale(0.95);
+    transform-origin: bottom;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card.active {
+    width: 250px;
+    height: 340px;
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card.active::after {
+    opacity: 1;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.card.active .card-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.card-top h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.card-top .time {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.card-content p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+/* Bottom Controls */
+.hero-bottom {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: auto;
+    padding-bottom: 1rem;
+}
+
+.slider-indicator {
+    display: flex;
+    align-items: baseline;
+}
+
+.slider-indicator .current {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.slider-indicator .total {
+    font-size: 1rem;
+    opacity: 0.6;
+    margin-left: 2px;
+}
+
+.progress-bar-container {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    max-width: 300px;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #fff;
+    width: 20%;
+    transition: width 0.5s ease;
+}
+
+@media (max-width: 1024px) {
+    .main-heading {
+        font-size: 3.5rem;
+    }
+
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .right-content {
+        height: 400px;
+        align-items: center;
+        justify-content: flex-start;
+        flex: none;
+    }
+
+    .carousel {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        overflow-x: auto;
+        padding: 1rem 0;
+        scroll-snap-type: x mandatory;
+        justify-content: flex-start;
+    }
+
+    .card {
+        scroll-snap-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .glass-nav {
+        display: none;
+    }
+
+    .main-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .left-content {
+        max-width: 100%;
+    }
+}
