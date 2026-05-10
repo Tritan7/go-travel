@@ -37,9 +37,9 @@
         <nav class="glass-nav">
             <ul>
                 <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Tour Details</a></li>
+                <li><a href="#tour-activity">Tour Activity</a></li>
                 <li><a href="#">Travel Plan</a></li>
-                <li><a href="#">Package</a></li>
+                <li><a href="#packages">Package</a></li>
                 <li><a href="#">Testimonials</a></li>
             </ul>
         </nav>
@@ -151,6 +151,232 @@
             </div>
         </div>
     </main>
+
+    <section class="tour-packages" id="tour-activity">
+        <div class="tp-header">
+            <span class="tp-tag"><i class="ph ph-sparkle"></i> Tour Activity</span>
+            <h2>Our Tour Package <span class="light">Ensures A Seamless<br>And Memorable Adventure.</span></h2>
+            <div class="tp-filters">
+                <button class="filter-btn" data-filter="trekking">Trekking Adventure</button>
+                <button class="filter-btn active" data-filter="jeep">Jeep Exploration</button>
+                <button class="filter-btn" data-filter="culture">Cultural Insights Tour</button>
+                <button class="filter-btn" data-filter="sunrise">Sunrise View</button>
+            </div>
+        </div>
+
+        <div class="tp-carousel-container">
+            <div class="tp-carousel" id="tp-carousel">
+                <!-- Card 1 -->
+                <div class="tp-card" data-category="jeep">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Vintage Jeep Ride</h4>
+                        <p>Enjoy the scenic views with a classic vintage Jeep.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="tp-card" data-category="jeep">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Savanna Expedition</h4>
+                        <p>Explore the beautiful savanna in an open-top Jeep.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="tp-card" data-category="jeep">
+                    <div class="tp-card-image" style="background-image: url('assets/jeep.jpg');">
+                        <div class="circular-mask"></div>
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Bromo Caldera Drive</h4>
+                        <p>Explore the vast caldera of Mount Bromo in a sturdy Jeep.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="tp-card" data-category="jeep">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Off-Road Adventure</h4>
+                        <p>Take the path less traveled with expert drivers.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="tp-card" data-category="trekking">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Forest Trekking</h4>
+                        <p>Discover hidden trails and beautiful forest scenery.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Cultural Insights Tour Cards -->
+                <!-- Card C1 -->
+                <div class="tp-card" data-category="culture">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Tengger Ceremony</h4>
+                        <p>Witness the sacred Yadnya Kasada ritual of the Tengger tribe at the crater's edge.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card C2 -->
+                <div class="tp-card" data-category="culture">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Village Homestay</h4>
+                        <p>Stay with a local Tengger family and experience authentic daily life and traditions.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card C3 -->
+                <div class="tp-card" data-category="culture">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1519922639192-e73293ca430e?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Traditional Batik Workshop</h4>
+                        <p>Learn the ancient art of Javanese Batik from master craftsmen in a local village.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Sunrise View Cards -->
+                <!-- Card S1 -->
+                <div class="tp-card" data-category="sunrise">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Penanjakan Peak</h4>
+                        <p>Watch the golden sunrise unfold over Mount Bromo from the iconic Penanjakan viewpoint.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card S2 -->
+                <div class="tp-card" data-category="sunrise">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>King Kong Hill</h4>
+                        <p>A hidden gem for sunrise chasers — stunning panoramic views of the caldera and Semeru.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card S3 -->
+                <div class="tp-card" data-category="sunrise">
+                    <div class="tp-card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="tp-card-info">
+                        <h4>Savanna Golden Hour</h4>
+                        <p>Greet the morning light as it bathes the Bromo savanna in warm golden tones.</p>
+                        <button class="btn-arrow"><i class="ph ph-arrow-up-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tp-controls">
+            <button class="control-btn" id="tp-prev"><i class="ph ph-arrow-left"></i></button>
+            <div class="tp-progress-container">
+                <div class="tp-progress-bar" id="tp-progress"></div>
+            </div>
+            <button class="control-btn" id="tp-next"><i class="ph ph-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section class="packages-section" id="packages">
+        <div class="packages-header">
+            <span class="tp-tag"><i class="ph ph-sparkle"></i> Our Packages</span>
+            <h2>Choose Your Perfect <span class="text-gray">Package</span> For<br>Memorable Bromo Adventure.</h2>
+        </div>
+
+        <div class="packages-grid">
+            <!-- Card 1 -->
+            <div class="pkg-card dark">
+                <div class="pkg-card-main">
+                    <div class="pkg-top">
+                        <div class="pkg-price">
+                            <h3>$35</h3>
+                            <span>/Person</span>
+                        </div>
+                        <div class="pkg-desc">
+                            <p>This package includes a guided tour to the best sunrise viewpoint, a visit to the Bromo crater, and a jeep ride across the Sea of Sand.</p>
+                        </div>
+                    </div>
+                    <div class="pkg-bottom">
+                        <h4>Sunrise<br>Spectacle</h4>
+                    </div>
+                </div>
+                <a href="#" class="pkg-btn">
+                    <i class="ph ph-arrow-right"></i>
+                    <span>Get Now</span>
+                </a>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="pkg-card light">
+                <div class="pkg-card-main">
+                    <div class="pkg-top">
+                        <div class="pkg-price">
+                            <h3>$58</h3>
+                            <span>/Person</span>
+                        </div>
+                        <div class="pkg-desc">
+                            <p>For the adventurous souls, this package offers an in-depth trek around Mount Bromo. Includes guided hikes through scenic trails.</p>
+                        </div>
+                    </div>
+                    <div class="pkg-bottom">
+                        <h4>Adventure<br>Track</h4>
+                    </div>
+                </div>
+                <a href="#" class="pkg-btn">
+                    <i class="ph ph-arrow-right"></i>
+                    <span>Get Now</span>
+                </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="pkg-card dark">
+                <div class="pkg-card-main">
+                    <div class="pkg-top">
+                        <div class="pkg-price">
+                            <h3>$99</h3>
+                            <span>/Person</span>
+                        </div>
+                        <div class="pkg-desc">
+                            <p>Perfect for night sky enthusiasts, this package features stargazing opportunities from prime locations around Mount Bromo.</p>
+                        </div>
+                    </div>
+                    <div class="pkg-bottom">
+                        <h4>Stargazing<br>Escape</h4>
+                    </div>
+                </div>
+                <a href="#" class="pkg-btn">
+                    <i class="ph ph-arrow-right"></i>
+                    <span>Get Now</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
