@@ -195,3 +195,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Sticky Header & Scrollspy Logic
+const header = document.querySelector('header');
+const sections = document.querySelectorAll('main, section');
+const navLinks = document.querySelectorAll('.glass-nav a');
+
+window.addEventListener('scroll', () => {
+    // Sticky header
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+
+    // Scrollspy: update active nav link
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        // Adjust the offset threshold based on header height (~100px)
+        if (pageYOffset >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (current && link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+});
+
