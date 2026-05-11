@@ -249,15 +249,6 @@ stepCards.forEach(card => {
     });
 });
 
-// Revert to the first card when mouse leaves the section
-if (stepsContainer) {
-    stepsContainer.addEventListener('mouseleave', () => {
-        stepCards.forEach(c => c.classList.remove('active'));
-        if (stepCards.length > 0) {
-            stepCards[0].classList.add('active');
-        }
-    });
-}
 
 // Mobile Menu Toggle
 const hamburgerBtn = document.getElementById('hamburger-btn');

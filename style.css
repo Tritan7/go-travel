@@ -608,7 +608,7 @@ header.scrolled {
     margin-bottom: 3rem;
 }
 
-.tp-tag {
+.section-title {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -838,7 +838,7 @@ header.scrolled {
     margin-bottom: 4rem;
 }
 
-.packages-header .tp-tag {
+.packages-header .section-title {
     background: #fff;
     color: #000;
     border: none;
@@ -988,6 +988,10 @@ header.scrolled {
 .how-to-book-section .packages-header {
     text-align: center;
     margin-bottom: 5rem;
+}
+
+.how-to-book-section .packages-header .section-title {
+    border: 1px solid #ddd;
 }
 
 .how-to-book-section .packages-header h2 {
@@ -1142,20 +1146,6 @@ header.scrolled {
 
 .doc-header-left {
     max-width: 600px;
-}
-
-.doc-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    background: #fff;
-    color: #111;
 }
 
 .doc-header-left h2 {
@@ -1750,8 +1740,10 @@ header.scrolled {
 
     .tp-carousel {
         justify-content: flex-start;
-        padding: 1rem 50vw; /* This padding allows the first and last cards to reach the center */
-        margin-left: calc(-130px - 50vw + 50%); /* Center the first card (260px width/2 = 130px) */
+        padding: 1rem 50vw;
+        /* This padding allows the first and last cards to reach the center */
+        margin-left: calc(-130px - 50vw + 50%);
+        /* Center the first card (260px width/2 = 130px) */
     }
 
     .tp-card {
@@ -1762,7 +1754,7 @@ header.scrolled {
         opacity: 0.5;
         transition: all 0.4s ease;
     }
-    
+
     .tp-card.active {
         width: 260px;
         height: 360px;
@@ -1770,7 +1762,7 @@ header.scrolled {
         opacity: 1;
         margin: 0;
         z-index: 10;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .large-media {
