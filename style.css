@@ -1769,12 +1769,17 @@ header.scrolled {
         height: 300px;
     }
 
+    .footer-subscribe {
+        width: 100%;
+    }
+
     .subscribe-form {
         flex-direction: column;
         background: transparent;
         border: none;
         padding: 0;
         gap: 1rem;
+        width: 100%;
     }
 
     .subscribe-form input {
@@ -1796,5 +1801,26 @@ header.scrolled {
 
     .footer-middle {
         gap: 2.5rem;
+    }
+
+    .steps-container {
+        gap: 3rem;
+    }
+
+    .step-card.active {
+        transform: scale(1.05);
+    }
+
+    .step-card.active:hover {
+        transform: scale(1.05) translateY(-5px);
+    }
+
+    .main-footer {
+        padding: 0;
+    }
+
+    .footer-container {
+        border-radius: 0;
+        padding: 3rem 5%;
     }
 }
