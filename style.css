@@ -978,6 +978,20 @@ header.scrolled {
     transition: transform 0.3s ease;
 }
 
+@media (min-width: 1025px) {
+    .pkg-desc, .pkg-btn {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease, background 0.3s ease;
+    }
+    
+    .pkg-card:hover .pkg-desc,
+    .pkg-card:hover .pkg-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 /* How To Book Section */
 .how-to-book-section {
     background-color: #fff;
@@ -1704,6 +1718,24 @@ header.scrolled {
     font-size: 0.85rem;
     line-height: 1.5;
 }
+
+/* Entrance Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 300ms; }
+.delay-300 { transition-delay: 450ms; }
+.delay-400 { transition-delay: 600ms; }
 
 @media (max-width: 992px) {
     .footer-middle {

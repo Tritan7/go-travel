@@ -174,9 +174,89 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Swipe/Drag support for tpCarousel on Mobile
+    let isDragging = false;
+    let didDrag = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+
+    function touchStart(event) {
+        if (window.innerWidth > 768) return;
+        isDragging = true;
+        startPos = getPositionX(event);
+        tpCarousel.style.transition = 'none';
+
+        const style = window.getComputedStyle(tpCarousel);
+        // Fallback for browsers that might not support DOMMatrix on computed transforms directly
+        const transformString = style.transform !== 'none' ? style.transform : 'matrix(1, 0, 0, 1, 0, 0)';
+        const matrix = new DOMMatrixReadOnly(transformString);
+        prevTranslate = matrix.m41;
+    }
+
+    function touchMove(event) {
+        if (isDragging && window.innerWidth <= 768) {
+            const currentPosition = getPositionX(event);
+            const diff = currentPosition - startPos;
+            
+            if (Math.abs(diff) > 10) {
+                didDrag = true;
+            }
+            
+            currentTranslate = prevTranslate + diff;
+            tpCarousel.style.transform = `translateX(${currentTranslate}px)`;
+        }
+    }
+
+    function touchEnd(event) {
+        if (!isDragging || window.innerWidth > 768) return;
+        isDragging = false;
+        tpCarousel.style.transition = 'transform 0.5s ease-out';
+        
+        const currentPosition = event.type.includes('mouse') ? event.pageX : event.changedTouches[0].clientX;
+        const movedBy = currentPosition - startPos;
+
+        if (movedBy < -50 && tpCurrentIndex < visibleCards.length - 1) {
+            tpCurrentIndex += 1;
+        } else if (movedBy > 50 && tpCurrentIndex > 0) {
+            tpCurrentIndex -= 1;
+        }
+
+        updateTpCarousel();
+        
+        if (didDrag) {
+            setTimeout(() => { didDrag = false; }, 50);
+        }
+    }
+
+    tpCarousel.addEventListener('touchstart', touchStart, { passive: true });
+    tpCarousel.addEventListener('touchend', touchEnd);
+    tpCarousel.addEventListener('touchmove', touchMove, { passive: true });
+
+    tpCarousel.addEventListener('mousedown', touchStart);
+    tpCarousel.addEventListener('mouseup', touchEnd);
+    tpCarousel.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            isDragging = false;
+            tpCarousel.style.transition = 'transform 0.5s ease-out';
+            updateTpCarousel();
+        }
+    });
+    tpCarousel.addEventListener('mousemove', touchMove);
+
     // Click on card to make it active
     tpCards.forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            if (didDrag) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            
             const index = visibleCards.indexOf(card);
             if (index !== -1) {
                 tpCurrentIndex = index;
@@ -278,3 +358,22 @@ if (hamburgerBtn && navMenu) {
     });
 }
 
+// Scroll Entrance Animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+            observer.unobserve(entry.target); // Optional: only animate once
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(element => {
+    observer.observe(element);
+});
