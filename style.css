@@ -954,28 +954,17 @@ header.scrolled {
     height: 120px;
     border-radius: 0 0 30px 0;
     display: flex;
-    flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    padding: 1.5rem 1.8rem;
+    padding: 1.8rem 1.8rem;
     text-decoration: none;
     clip-path: polygon(100% 0, 100% 100%, 0 100%);
     transition: background 0.3s ease;
 }
 
 .pkg-btn i {
-    font-size: 1.5rem;
-    margin-bottom: 0.3rem;
-}
-
-.pkg-btn span {
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.pkg-card:hover .pkg-btn i {
-    transform: translateX(5px) translateY(-5px);
-    transition: transform 0.3s ease;
+    font-size: 1.8rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 1025px) {
@@ -993,31 +982,14 @@ header.scrolled {
         visibility: visible;
     }
 
-    .pkg-btn span {
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* When hovering the card: hide text, center arrow */
-    .pkg-card:hover .pkg-btn span {
-        opacity: 0;
-        transform: translateY(10px);
-        visibility: hidden;
-    }
-
+    /* Arrow stays in position when card is hovered */
     .pkg-card:hover .pkg-btn i {
-        transform: translateX(10px) translateY(12px) scale(1.1);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: scale(1);
     }
 
-    /* When hovering the button itself: show text, shift arrow */
-    .pkg-card .pkg-btn:hover span {
-        opacity: 1;
-        transform: translateY(0);
-        visibility: visible;
-    }
-
+    /* When hovering the button itself, scale up the arrow slightly and move it top-right */
     .pkg-card .pkg-btn:hover i {
-        transform: translateX(5px) translateY(-5px) scale(1);
+        transform: translateX(3px) translateY(-3px) scale(1.15);
     }
 }
 
